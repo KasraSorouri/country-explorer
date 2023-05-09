@@ -13,7 +13,6 @@ import {
 
 const Country = ({ country }) => {
   console.log('country ->', country  )
-  console.log('languages ->', Object.values(country.languages)  )
 
   if (!country) {
     return (
@@ -38,8 +37,8 @@ const Country = ({ country }) => {
               <TableRow>
                 <TableCell align='center' colSpan={4} >
                   <Typography typography={'h4'}>
-                    {country.name.common}
-                    {country.flag}
+                    {country.name.common}{' '}
+                    <img src={country.flags.png} alt={country.flags.alt}  style={{ width:'50px', height:'30px' }} />
                   </Typography>
                 </TableCell>
               </TableRow>
@@ -47,6 +46,7 @@ const Country = ({ country }) => {
                 <TableCell align='center' colSpan={4} >
                   <Typography typography={'h4'}>
                     {country.translations.fin ? country.translations.fin.common : null }{' '}
+                    {country.flag}
                     {country.translations.per ? country.translations.per.common : null}
                   </Typography>
                 </TableCell>
