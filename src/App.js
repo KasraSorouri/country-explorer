@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react'
+
+import services from './services/country'
+import Countries from './components/Countries'
 
 function App() {
+  const [countries, setCountries] = useState([])
+
+  useEffect(() => {
+    const countries = async() => {
+      const data = await services.getAllCountries()
+      setCountries(data)
+    }
+    countries()
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Countries countries={countries} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
