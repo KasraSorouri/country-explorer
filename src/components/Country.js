@@ -71,14 +71,6 @@ const Country = ({ country }) => {
               </TableRow>
               <TableRow>
                 <TableCell >
-                  area:
-                </TableCell>
-                <TableCell >
-                  {country.area.toLocaleString()}
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell >
                   population:
                 </TableCell>
                 <TableCell >
